@@ -1,0 +1,39 @@
+<head>
+  
+</head>
+<body>
+
+  <p id="collatz"></p>
+
+  <script>
+const url_params = new URLSearchParams(window.location.search);
+let collatz = document.getElementById("collatz");
+let num = url_params.get('n');
+let n;
+if (!num) {
+  n=1
+} else {
+  n = num
+}
+function reset() {
+  num++;
+  n=num;
+  document.title = num;
+  collatz.innerHTML = n + " ";
+}
+collatz.innerHTML = collatz.innerHTML + n + "\n";
+document.title = num;
+setInterval(() => {
+    if (n > 1) {
+      if (n % 2 === 0) {
+        n /= 2
+      } else {
+        n = n*3+1
+      }
+      collatz.innerHTML = collatz.innerHTML + n + "\n";
+    } else {
+      reset()
+    }
+}, 0);
+  </script>
+</body>
