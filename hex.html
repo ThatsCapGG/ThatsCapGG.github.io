@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hex Stream Generator</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            margin: 0;
+            word-break: break-all;
+            font-size: 14px;
+            line-height: 1.2;
+        }
+        #stream {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="stream"></div>
+
+    <script>
+        const streamContainer = document.getElementById('stream');
+
+        function generateHexStream() {
+            // Generate a random integer between 0 and 100000
+            const x = Math.floor(Math.random() * 100001);
+            
+            // Convert to hexadecimal string
+            const hexString = x.toString(16);
+            
+            // Append the hex string to the container
+            streamContainer.append(hexString);
+
+            // Continuously loop using the browser's animation frame
+            requestAnimationFrame(generateHexStream);
+        }
+
+        // Start the stream
+        generateHexStream();
+    </script>
+
+</body>
+</html>
