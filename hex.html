@@ -28,23 +28,14 @@
 
     <script>
         const streamContainer = document.getElementById('stream');
+        let x;
+        let hex;
 
-        function generateHexStream() {
-            // Generate a random integer between 0 and 100000
+        setInterval(()=>{
             const x = Math.floor(Math.random() * 100000001);
-            
-            // Convert to hexadecimal string
-            const hexString = x.toString(16);
-            
-            // Append the hex string to the container
+            const hex = x.toString(16);
             streamContainer = hexString;
-
-            // Continuously loop using the browser's animation frame
-            requestAnimationFrame(generateHexStream);
-        }
-
-        // Start the stream
-        generateHexStream();
+        }, 1)
     </script>
 
 </body>
