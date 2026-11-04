@@ -37,7 +37,7 @@
             const hexString = x.toString(16);
             
             // Append the hex string to the container
-            streamContainer.append(hexString);
+            streamContainer.concat(hexString);
 
             // Continuously loop using the browser's animation frame
             requestAnimationFrame(generateHexStream);
